@@ -29,13 +29,82 @@ namespace IRF_beadando
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.txtFelhasznalonev = new System.Windows.Forms.TextBox();
+			this.txtJelszo = new System.Windows.Forms.TextBox();
+			this.SuspendLayout();
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label1.Location = new System.Drawing.Point(31, 34);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(150, 23);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Bejelentkezés";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label2.Location = new System.Drawing.Point(106, 141);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(174, 23);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "Felhasználónév:";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label3.Location = new System.Drawing.Point(106, 205);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(79, 23);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "Jelszó:";
+			// 
+			// txtFelhasznalonev
+			// 
+			this.txtFelhasznalonev.Location = new System.Drawing.Point(308, 141);
+			this.txtFelhasznalonev.Name = "txtFelhasznalonev";
+			this.txtFelhasznalonev.Size = new System.Drawing.Size(220, 22);
+			this.txtFelhasznalonev.TabIndex = 3;
+			// 
+			// txtJelszo
+			// 
+			this.txtJelszo.Location = new System.Drawing.Point(308, 208);
+			this.txtJelszo.Name = "txtJelszo";
+			this.txtJelszo.Size = new System.Drawing.Size(220, 22);
+			this.txtJelszo.TabIndex = 4;
+			// 
+			// Form1
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.BackColor = System.Drawing.Color.Tan;
+			this.ClientSize = new System.Drawing.Size(639, 342);
+			this.Controls.Add(this.txtJelszo);
+			this.Controls.Add(this.txtFelhasznalonev);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
+			this.Name = "Form1";
 			this.Text = "Form1";
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
 		#endregion
+
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox txtFelhasznalonev;
+		private System.Windows.Forms.TextBox txtJelszo;
 	}
 }
 
