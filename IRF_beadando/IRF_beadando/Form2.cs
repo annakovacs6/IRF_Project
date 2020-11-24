@@ -16,7 +16,7 @@ namespace IRF_beadando
 		Database1Entities4 context = new Database1Entities4();
 		Felhasznalo felhasznalo;
 
-		private List<Futo> futos = new List<Futo>();
+		private List<Futo> _futos = new List<Futo>();
 
 		private FutoAnimacio _animacio;
 		public FutoAnimacio Animacio
@@ -29,6 +29,34 @@ namespace IRF_beadando
 			InitializeComponent();
 			Animacio = new FutoAnimacio();
 			this.felhasznalo = bejelentkezettFelhasznalo;
+		}
+
+		private void createTimer_Tick(object sender, EventArgs e)
+		{
+			var futo = Animacio.CreateNew();
+			_futos.Add(futo);
+			futo.Left = -futo.Width;
+			mainPanel.Controls.Add(futo);
+		}
+
+		private void conveyorTimer_Tick(object sender, EventArgs e)
+		{
+			var maxPosition = 0;
+			foreach(var futo in _futos)
+			{
+				futo.MoveFuto();
+				if (futo.Left > maxPosition)
+				{
+					maxPosition = futo.Left;
+				}
+			}
+
+			if (maxPosition >1000)
+			{
+				var oldestFuto = _futos[0];
+				mainPanel.Controls.Remove(oldestFuto);
+				_futos.Remove(oldestFuto);
+			}
 		}
 	}
 }
