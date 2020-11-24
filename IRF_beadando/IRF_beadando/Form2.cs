@@ -34,8 +34,17 @@ namespace IRF_beadando
 			this.felhasznalo = bejelentkezettFelhasznalo;
 			Stopwatch stopwatch = new Stopwatch();
 
-			
+			listBoxEsemeny.DisplayMember = "NEV";
 
+			this.listEsemenyek();
+		}
+
+		public void listEsemenyek()
+		{
+			var esemeny = (from x in context.Esemeny
+							 select x).ToList();
+
+			listBoxEsemeny.DataSource = esemeny;
 		}
 
 		private void createTimer_Tick(object sender, EventArgs e)
@@ -97,9 +106,7 @@ namespace IRF_beadando
 				context.SaveChanges();
 				
 				MessageBox.Show("Az idő sikeresen elmentődött");
-				var meres = (from x in context.Idomero
-							 select x).ToList();
-				bindingSource1.DataSource = meres;
+				
 			}
 			catch (Exception ex)
 			{
