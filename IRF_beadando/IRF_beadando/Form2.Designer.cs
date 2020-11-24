@@ -33,12 +33,17 @@ namespace IRF_beadando
 			this.mainPanel = new System.Windows.Forms.Panel();
 			this.createTimer = new System.Windows.Forms.Timer(this.components);
 			this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
+			this.btnStart = new System.Windows.Forms.Button();
+			this.btnStop = new System.Windows.Forms.Button();
+			this.mainPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainPanel
 			// 
 			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.mainPanel.Controls.Add(this.btnStop);
+			this.mainPanel.Controls.Add(this.btnStart);
 			this.mainPanel.Location = new System.Drawing.Point(4, 2);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(792, 443);
@@ -56,6 +61,28 @@ namespace IRF_beadando
 			this.conveyorTimer.Interval = 10;
 			this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
 			// 
+			// btnStart
+			// 
+			this.btnStart.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.btnStart.Location = new System.Drawing.Point(8, 117);
+			this.btnStart.Name = "btnStart";
+			this.btnStart.Size = new System.Drawing.Size(164, 35);
+			this.btnStart.TabIndex = 0;
+			this.btnStart.Text = "Start animáció";
+			this.btnStart.UseVisualStyleBackColor = true;
+			this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+			// 
+			// btnStop
+			// 
+			this.btnStop.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.btnStop.Location = new System.Drawing.Point(8, 158);
+			this.btnStop.Name = "btnStop";
+			this.btnStop.Size = new System.Drawing.Size(164, 35);
+			this.btnStop.TabIndex = 2;
+			this.btnStop.Text = "Stop animáció";
+			this.btnStop.UseVisualStyleBackColor = true;
+			this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+			// 
 			// Form2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -65,6 +92,7 @@ namespace IRF_beadando
 			this.Controls.Add(this.mainPanel);
 			this.Name = "Form2";
 			this.Text = "Form2";
+			this.mainPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -74,5 +102,7 @@ namespace IRF_beadando
 		private System.Windows.Forms.Panel mainPanel;
 		private System.Windows.Forms.Timer createTimer;
 		private System.Windows.Forms.Timer conveyorTimer;
+		private System.Windows.Forms.Button btnStop;
+		private System.Windows.Forms.Button btnStart;
 	}
 }

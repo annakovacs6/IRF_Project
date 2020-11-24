@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace IRF_beadando
 	{
 		Database1Entities6 context = new Database1Entities6();
 		Felhasznalo felhasznalo;
+		Stopwatch stopwatch = new Stopwatch();
 
 		private List<Futo> _futos = new List<Futo>();
 
@@ -27,8 +29,11 @@ namespace IRF_beadando
 		public Form2(Felhasznalo bejelentkezettFelhasznalo)
 		{
 			InitializeComponent();
+
 			Animacio = new FutoAnimacio();
 			this.felhasznalo = bejelentkezettFelhasznalo;
+			Stopwatch stopwatch = new Stopwatch();
+
 		}
 
 		private void createTimer_Tick(object sender, EventArgs e)
@@ -57,6 +62,43 @@ namespace IRF_beadando
 				mainPanel.Controls.Remove(oldestFuto);
 				_futos.Remove(oldestFuto);
 			}
+		}
+
+		public void btnStart_Click(object sender, EventArgs e)
+		{
+			createTimer.Enabled = false;
+			conveyorTimer.Enabled = false;
+
+			Stopwatch sw = new Stopwatch();
+			stopwatch.Start();
+		}
+
+		public void btnStop_Click(object sender, EventArgs e)
+		{
+			createTimer.Enabled = true;
+			conveyorTimer.Enabled = true;
+
+			stopwatch.Stop();
+		
+			Idomero ido = new Idomero();
+
+			TimeSpan ts = stopwatch.Elapsed;
+			ido.MERT_IDO = ts;
+
+			context.Idomero.Add(ido);
+
+			try
+			{
+				context.SaveChanges();
+				MessageBox.Show("Az idő sikeresen elmentődött");
+			}
+			catch (Exception ex)
+			{
+
+				MessageBox.Show(ex.Message);
+			}
+
+
 		}
 	}
 }
