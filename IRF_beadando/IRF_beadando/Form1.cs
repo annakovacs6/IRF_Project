@@ -29,5 +29,29 @@ namespace IRF_beadando
 			Nyar_Koszonto_Futas = context.Nyar_koszonto_futas.ToList();
 			Idomeros = context.Idomero.ToList();
 		}
+
+		private void btnBelep_Click(object sender, EventArgs e)
+		{
+			var felhasznalo = (from x in Felhasznalos
+							   where txtFelhasznalonev.Text == x.FELH_NEV
+							   select x).FirstOrDefault();
+
+			if (felhasznalo != null)
+			{
+				if (txtFutoazonosito.Text ==felhasznalo.FUTO_AZONOSITO)
+				{
+					Form2 f2 = new Form2(felhasznalo);
+					f2.Show();
+				}
+				else
+				{
+					MessageBox.Show("Hibás futóazonosító");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Hibás felhasználónév");
+			}
+		}
 	}
 }

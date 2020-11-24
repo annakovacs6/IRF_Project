@@ -33,7 +33,8 @@ namespace IRF_beadando
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtFelhasznalonev = new System.Windows.Forms.TextBox();
-			this.txtJelszo = new System.Windows.Forms.TextBox();
+			this.txtFutoazonosito = new System.Windows.Forms.TextBox();
+			this.btnBelep = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -60,11 +61,11 @@ namespace IRF_beadando
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label3.Location = new System.Drawing.Point(106, 205);
+			this.label3.Location = new System.Drawing.Point(106, 208);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(79, 23);
+			this.label3.Size = new System.Drawing.Size(159, 23);
 			this.label3.TabIndex = 2;
-			this.label3.Text = "Jelszó:";
+			this.label3.Text = "Futóazonosító:";
 			// 
 			// txtFelhasznalonev
 			// 
@@ -73,12 +74,24 @@ namespace IRF_beadando
 			this.txtFelhasznalonev.Size = new System.Drawing.Size(220, 22);
 			this.txtFelhasznalonev.TabIndex = 3;
 			// 
-			// txtJelszo
+			// txtFutoazonosito
 			// 
-			this.txtJelszo.Location = new System.Drawing.Point(308, 208);
-			this.txtJelszo.Name = "txtJelszo";
-			this.txtJelszo.Size = new System.Drawing.Size(220, 22);
-			this.txtJelszo.TabIndex = 4;
+			this.txtFutoazonosito.Location = new System.Drawing.Point(308, 208);
+			this.txtFutoazonosito.Name = "txtFutoazonosito";
+			this.txtFutoazonosito.Size = new System.Drawing.Size(220, 22);
+			this.txtFutoazonosito.TabIndex = 4;
+			// 
+			// btnBelep
+			// 
+			this.btnBelep.BackColor = System.Drawing.Color.White;
+			this.btnBelep.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.btnBelep.Location = new System.Drawing.Point(374, 253);
+			this.btnBelep.Name = "btnBelep";
+			this.btnBelep.Size = new System.Drawing.Size(154, 37);
+			this.btnBelep.TabIndex = 5;
+			this.btnBelep.Text = "Bejeletkezés";
+			this.btnBelep.UseVisualStyleBackColor = false;
+			this.btnBelep.Click += new System.EventHandler(this.btnBelep_Click);
 			// 
 			// Form1
 			// 
@@ -86,11 +99,13 @@ namespace IRF_beadando
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Tan;
 			this.ClientSize = new System.Drawing.Size(639, 342);
-			this.Controls.Add(this.txtJelszo);
+			this.Controls.Add(this.btnBelep);
+			this.Controls.Add(this.txtFutoazonosito);
 			this.Controls.Add(this.txtFelhasznalonev);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.ResumeLayout(false);
@@ -104,7 +119,8 @@ namespace IRF_beadando
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txtFelhasznalonev;
-		private System.Windows.Forms.TextBox txtJelszo;
+		private System.Windows.Forms.TextBox txtFutoazonosito;
+		private System.Windows.Forms.Button btnBelep;
 	}
 }
 
