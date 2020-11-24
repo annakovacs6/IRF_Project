@@ -35,36 +35,31 @@ namespace IRF_beadando
 			this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
 			this.btnStart = new System.Windows.Forms.Button();
 			this.btnStop = new System.Windows.Forms.Button();
-			this.mainPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainPanel
 			// 
 			this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.mainPanel.Controls.Add(this.btnStop);
-			this.mainPanel.Controls.Add(this.btnStart);
-			this.mainPanel.Location = new System.Drawing.Point(4, 2);
+			this.mainPanel.Location = new System.Drawing.Point(12, 12);
 			this.mainPanel.Name = "mainPanel";
-			this.mainPanel.Size = new System.Drawing.Size(792, 443);
+			this.mainPanel.Size = new System.Drawing.Size(776, 164);
 			this.mainPanel.TabIndex = 0;
 			// 
 			// createTimer
 			// 
-			this.createTimer.Enabled = true;
 			this.createTimer.Interval = 3000;
 			this.createTimer.Tick += new System.EventHandler(this.createTimer_Tick);
 			// 
 			// conveyorTimer
 			// 
-			this.conveyorTimer.Enabled = true;
 			this.conveyorTimer.Interval = 10;
 			this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
 			// 
 			// btnStart
 			// 
 			this.btnStart.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.btnStart.Location = new System.Drawing.Point(8, 117);
+			this.btnStart.Location = new System.Drawing.Point(443, 197);
 			this.btnStart.Name = "btnStart";
 			this.btnStart.Size = new System.Drawing.Size(164, 35);
 			this.btnStart.TabIndex = 0;
@@ -75,7 +70,7 @@ namespace IRF_beadando
 			// btnStop
 			// 
 			this.btnStop.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.btnStop.Location = new System.Drawing.Point(8, 158);
+			this.btnStop.Location = new System.Drawing.Point(624, 197);
 			this.btnStop.Name = "btnStop";
 			this.btnStop.Size = new System.Drawing.Size(164, 35);
 			this.btnStop.TabIndex = 2;
@@ -90,9 +85,10 @@ namespace IRF_beadando
 			this.BackColor = System.Drawing.Color.Tan;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.mainPanel);
+			this.Controls.Add(this.btnStop);
+			this.Controls.Add(this.btnStart);
 			this.Name = "Form2";
 			this.Text = "Form2";
-			this.mainPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

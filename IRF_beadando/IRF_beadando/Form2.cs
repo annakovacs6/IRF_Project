@@ -34,6 +34,8 @@ namespace IRF_beadando
 			this.felhasznalo = bejelentkezettFelhasznalo;
 			Stopwatch stopwatch = new Stopwatch();
 
+			
+
 		}
 
 		private void createTimer_Tick(object sender, EventArgs e)
@@ -66,8 +68,8 @@ namespace IRF_beadando
 
 		public void btnStart_Click(object sender, EventArgs e)
 		{
-			createTimer.Enabled = false;
-			conveyorTimer.Enabled = false;
+			createTimer.Enabled = true;
+			conveyorTimer.Enabled = true;
 
 			Stopwatch sw = new Stopwatch();
 			stopwatch.Start();
@@ -75,12 +77,15 @@ namespace IRF_beadando
 
 		public void btnStop_Click(object sender, EventArgs e)
 		{
-			createTimer.Enabled = true;
-			conveyorTimer.Enabled = true;
+			createTimer.Enabled = false;
+			conveyorTimer.Enabled = false;
 
 			stopwatch.Stop();
 		
 			Idomero ido = new Idomero();
+
+			string beirtFelhnev = felhasznalo.FELH_NEV;
+			ido.FELH_NEV_FK = beirtFelhnev;
 
 			TimeSpan ts = stopwatch.Elapsed;
 			ido.MERT_IDO = ts;
@@ -90,7 +95,11 @@ namespace IRF_beadando
 			try
 			{
 				context.SaveChanges();
+				
 				MessageBox.Show("Az idő sikeresen elmentődött");
+				var meres = (from x in context.Idomero
+							 select x).ToList();
+				bindingSource1.DataSource = meres;
 			}
 			catch (Exception ex)
 			{
@@ -100,5 +109,7 @@ namespace IRF_beadando
 
 
 		}
+
+	
 	}
 }
