@@ -111,6 +111,7 @@ namespace IRF_beadando
 			this.btnMentes.TabIndex = 6;
 			this.btnMentes.Text = "Mentés";
 			this.btnMentes.UseVisualStyleBackColor = true;
+			this.btnMentes.Click += new System.EventHandler(this.btnMentes_Click);
 			// 
 			// listBoxEsemeny
 			// 

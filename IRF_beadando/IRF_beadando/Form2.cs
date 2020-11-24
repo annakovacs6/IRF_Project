@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace IRF_beadando
 {
@@ -17,6 +19,10 @@ namespace IRF_beadando
 		Database1Entities6 context = new Database1Entities6();
 		Felhasznalo felhasznalo;
 		Stopwatch stopwatch = new Stopwatch();
+
+		List<Budapest_10km> Budapest_10Kms;
+		List<Nyar_koszonto_futas> Nyar_Koszonto_Futas;
+		List<Mikulas_futas> Mikulas_Futas;
 
 		private List<Futo> _futos = new List<Futo>();
 
@@ -37,6 +43,8 @@ namespace IRF_beadando
 			listBoxEsemeny.DisplayMember = "NEV";
 
 			this.listEsemenyek();
+			this.LoadData();
+
 		}
 
 		public void listEsemenyek()
@@ -45,6 +53,13 @@ namespace IRF_beadando
 							 select x).ToList();
 
 			listBoxEsemeny.DataSource = esemeny;
+		}
+
+		private void LoadData() 
+		{
+			Budapest_10Kms = context.Budapest_10km.ToList();
+			Nyar_Koszonto_Futas = context.Nyar_koszonto_futas.ToList();
+			Mikulas_Futas = context.Mikulas_futas.ToList();
 		}
 
 		private void createTimer_Tick(object sender, EventArgs e)
@@ -117,6 +132,9 @@ namespace IRF_beadando
 
 		}
 
-	
+		private void btnMentes_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
