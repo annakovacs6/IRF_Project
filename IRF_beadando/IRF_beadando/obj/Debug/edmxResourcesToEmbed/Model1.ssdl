@@ -29,6 +29,7 @@
     <Property Name="LAKCIM" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FUTO_AZONOSITO" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="EMAIL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JELSZO" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Idomero">
     <Key>

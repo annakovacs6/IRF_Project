@@ -63,9 +63,9 @@ namespace IRF_beadando
 			this.label3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.Location = new System.Drawing.Point(106, 208);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(159, 23);
+			this.label3.Size = new System.Drawing.Size(79, 23);
 			this.label3.TabIndex = 2;
-			this.label3.Text = "Futóazonosító:";
+			this.label3.Text = "Jelszó:";
 			// 
 			// txtFelhasznalonev
 			// 
@@ -80,6 +80,7 @@ namespace IRF_beadando
 			this.txtFutoazonosito.Name = "txtFutoazonosito";
 			this.txtFutoazonosito.Size = new System.Drawing.Size(220, 22);
 			this.txtFutoazonosito.TabIndex = 4;
+			this.txtFutoazonosito.UseSystemPasswordChar = true;
 			// 
 			// btnBelep
 			// 

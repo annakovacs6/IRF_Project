@@ -16,8 +16,10 @@ a stop gomb lenyomásával az idő mentődni fog egy táblába, minden alkalomma
 illetve a már említett excel letöltésére a kiválasztott eseményről.
 
 Minta felhasználók: 
-lnagy - 10006
-kszanto - 10011
-dhorvath - 10001
+lnagy - abc123
+kszanto - abc123
+dhorvath - abc123
+
+(minden felhasználó jelszava: abc123)
  
 

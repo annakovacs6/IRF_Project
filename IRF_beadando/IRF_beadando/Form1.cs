@@ -12,32 +12,32 @@ namespace IRF_beadando
 {
 	public partial class Form1 : Form
 	{
-		Database1Entities5 context = new Database1Entities5();
-		List<Felhasznalo> Felhasznalos;
+		Database1Entities6 context = new Database1Entities6();
+		
 		
 		public Form1()
 		{
 			InitializeComponent();
-			Felhasznalos = context.Felhasznalo.ToList();
+			
 			
 		}
 
 		private void btnBelep_Click(object sender, EventArgs e)
 		{
-			var felhasznalo = (from x in Felhasznalos
+			var felhasznalo = (from x in context.Felhasznalo
 							   where txtFelhasznalonev.Text == x.FELH_NEV
 							   select x).FirstOrDefault();
 
 			if (felhasznalo != null)
 			{
-				if (txtFutoazonosito.Text == felhasznalo.FUTO_AZONOSITO)
+				if (txtFutoazonosito.Text == felhasznalo.JELSZO)
 				{
 					Form2 f2 = new Form2(felhasznalo);
 					f2.Show();
 				}
 				else
 				{
-					MessageBox.Show("Hibás futóazonosító");
+					MessageBox.Show("Hibás jelszó");
 				}
 			}
 			else

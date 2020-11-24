@@ -13,7 +13,7 @@ namespace IRF_beadando
 {
 	public partial class Form2 : Form
 	{
-		Database1Entities5 context = new Database1Entities5();
+		Database1Entities6 context = new Database1Entities6();
 		Felhasznalo felhasznalo;
 
 		private List<Futo> _futos = new List<Futo>();

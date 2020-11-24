@@ -13,10 +13,10 @@ namespace IRF_beadando
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Database1Entities5 : DbContext
+    public partial class Database1Entities6 : DbContext
     {
-        public Database1Entities5()
-            : base("name=Database1Entities5")
+        public Database1Entities6()
+            : base("name=Database1Entities6")
         {
         }
     

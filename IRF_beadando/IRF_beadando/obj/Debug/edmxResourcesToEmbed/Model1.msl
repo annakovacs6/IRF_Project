@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities4">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities6">
     <EntitySetMapping Name="Budapest_10km">
       <EntityTypeMapping TypeName="Database1Model.Budapest_10km">
         <MappingFragment StoreEntitySet="Budapest_10km">
@@ -31,6 +31,7 @@
           <ScalarProperty Name="LAKCIM" ColumnName="LAKCIM" />
           <ScalarProperty Name="FUTO_AZONOSITO" ColumnName="FUTO_AZONOSITO" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="JELSZO" ColumnName="JELSZO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

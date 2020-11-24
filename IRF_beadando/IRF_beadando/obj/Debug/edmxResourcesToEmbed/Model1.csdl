@@ -34,6 +34,7 @@
     <Property Name="LAKCIM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FUTO_AZONOSITO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JELSZO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Budapest_10km" Relationship="Self.FK_Budapest_10km_Felhasznalo" FromRole="Felhasznalo" ToRole="Budapest_10km" />
     <NavigationProperty Name="Idomero" Relationship="Self.FK_Idomero_Felhasznalo" FromRole="Felhasznalo" ToRole="Idomero" />
     <NavigationProperty Name="Mikulas_futas" Relationship="Self.FK_Mikulas_futas_Felhasznalo" FromRole="Felhasznalo" ToRole="Mikulas_futas" />
@@ -156,7 +157,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Database1Entities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Database1Entities6" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Budapest_10km" EntityType="Self.Budapest_10km" />
     <EntitySet Name="Esemeny" EntityType="Self.Esemeny" />
     <EntitySet Name="Felhasznalo" EntityType="Self.Felhasznalo" />

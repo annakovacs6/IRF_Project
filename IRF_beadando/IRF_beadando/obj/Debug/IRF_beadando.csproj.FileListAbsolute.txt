@@ -1,6 +1,4 @@
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\Images\runner.png
-C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\Database1.mdf
-C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\Database1_log.ldf
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\IRF_beadando.exe.config
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\IRF_beadando.exe
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\IRF_beadando.pdb
@@ -17,3 +15,5 @@ C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\ob
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\obj\Debug\IRF_beadando.csproj.CopyComplete
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\obj\Debug\IRF_beadando.exe
 C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\obj\Debug\IRF_beadando.pdb
+C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\Database1.mdf
+C:\Users\csann\Source\Repos\annakovacs6\IRF_Project\IRF_beadando\IRF_beadando\bin\Debug\Database1_log.ldf
