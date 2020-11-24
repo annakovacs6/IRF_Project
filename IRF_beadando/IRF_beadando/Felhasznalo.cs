@@ -18,7 +18,7 @@ namespace IRF_beadando
         public Felhasznalo()
         {
             this.Budapest_10km = new HashSet<Budapest_10km>();
-            this.Idomeroes = new HashSet<Idomero>();
+            this.Idomero = new HashSet<Idomero>();
             this.Mikulas_futas = new HashSet<Mikulas_futas>();
             this.Nyar_koszonto_futas = new HashSet<Nyar_koszonto_futas>();
         }
@@ -33,7 +33,7 @@ namespace IRF_beadando
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Budapest_10km> Budapest_10km { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Idomero> Idomeroes { get; set; }
+        public virtual ICollection<Idomero> Idomero { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mikulas_futas> Mikulas_futas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

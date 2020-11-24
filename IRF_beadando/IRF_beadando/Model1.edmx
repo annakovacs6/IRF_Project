@@ -223,7 +223,7 @@
           <Property Name="FUTO_AZONOSITO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Budapest_10km" Relationship="Self.FK_Budapest_10km_Felhasznalo" FromRole="Felhasznalo" ToRole="Budapest_10km" />
-          <NavigationProperty Name="Idomeroes" Relationship="Self.FK_Idomero_Felhasznalo" FromRole="Felhasznalo" ToRole="Idomero" />
+          <NavigationProperty Name="Idomero" Relationship="Self.FK_Idomero_Felhasznalo" FromRole="Felhasznalo" ToRole="Idomero" />
           <NavigationProperty Name="Mikulas_futas" Relationship="Self.FK_Mikulas_futas_Felhasznalo" FromRole="Felhasznalo" ToRole="Mikulas_futas" />
           <NavigationProperty Name="Nyar_koszonto_futas" Relationship="Self.FK_Nyar_koszonto_futas_Felhasznalo" FromRole="Felhasznalo" ToRole="Nyar_koszonto_futas" />
         </EntityType>
@@ -344,39 +344,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Database1Entities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Budapest_10km" EntityType="Self.Budapest_10km" />
-          <EntitySet Name="Esemenies" EntityType="Self.Esemeny" />
-          <EntitySet Name="Felhasznaloes" EntityType="Self.Felhasznalo" />
-          <EntitySet Name="Idomeroes" EntityType="Self.Idomero" />
+          <EntitySet Name="Esemeny" EntityType="Self.Esemeny" />
+          <EntitySet Name="Felhasznalo" EntityType="Self.Felhasznalo" />
+          <EntitySet Name="Idomero" EntityType="Self.Idomero" />
           <EntitySet Name="Mikulas_futas" EntityType="Self.Mikulas_futas" />
           <EntitySet Name="Nyar_koszonto_futas" EntityType="Self.Nyar_koszonto_futas" />
           <AssociationSet Name="FK_Budapest_10km_Esemeny" Association="Self.FK_Budapest_10km_Esemeny">
-            <End Role="Esemeny" EntitySet="Esemenies" />
+            <End Role="Esemeny" EntitySet="Esemeny" />
             <End Role="Budapest_10km" EntitySet="Budapest_10km" />
           </AssociationSet>
           <AssociationSet Name="FK_Budapest_10km_Felhasznalo" Association="Self.FK_Budapest_10km_Felhasznalo">
-            <End Role="Felhasznalo" EntitySet="Felhasznaloes" />
+            <End Role="Felhasznalo" EntitySet="Felhasznalo" />
             <End Role="Budapest_10km" EntitySet="Budapest_10km" />
           </AssociationSet>
           <AssociationSet Name="FK_Mikulas_futas_Esemeny" Association="Self.FK_Mikulas_futas_Esemeny">
-            <End Role="Esemeny" EntitySet="Esemenies" />
+            <End Role="Esemeny" EntitySet="Esemeny" />
             <End Role="Mikulas_futas" EntitySet="Mikulas_futas" />
           </AssociationSet>
           <AssociationSet Name="FK_Nyar_koszonto_futas_Esemeny" Association="Self.FK_Nyar_koszonto_futas_Esemeny">
-            <End Role="Esemeny" EntitySet="Esemenies" />
+            <End Role="Esemeny" EntitySet="Esemeny" />
             <End Role="Nyar_koszonto_futas" EntitySet="Nyar_koszonto_futas" />
           </AssociationSet>
           <AssociationSet Name="FK_Idomero_Felhasznalo" Association="Self.FK_Idomero_Felhasznalo">
-            <End Role="Felhasznalo" EntitySet="Felhasznaloes" />
-            <End Role="Idomero" EntitySet="Idomeroes" />
+            <End Role="Felhasznalo" EntitySet="Felhasznalo" />
+            <End Role="Idomero" EntitySet="Idomero" />
           </AssociationSet>
           <AssociationSet Name="FK_Mikulas_futas_Felhasznalo" Association="Self.FK_Mikulas_futas_Felhasznalo">
-            <End Role="Felhasznalo" EntitySet="Felhasznaloes" />
+            <End Role="Felhasznalo" EntitySet="Felhasznalo" />
             <End Role="Mikulas_futas" EntitySet="Mikulas_futas" />
           </AssociationSet>
           <AssociationSet Name="FK_Nyar_koszonto_futas_Felhasznalo" Association="Self.FK_Nyar_koszonto_futas_Felhasznalo">
-            <End Role="Felhasznalo" EntitySet="Felhasznaloes" />
+            <End Role="Felhasznalo" EntitySet="Felhasznalo" />
             <End Role="Nyar_koszonto_futas" EntitySet="Nyar_koszonto_futas" />
           </AssociationSet>
         </EntityContainer>
@@ -385,7 +385,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities4">
           <EntitySetMapping Name="Budapest_10km">
             <EntityTypeMapping TypeName="Database1Model.Budapest_10km">
               <MappingFragment StoreEntitySet="Budapest_10km">
@@ -397,7 +397,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Esemenies">
+          <EntitySetMapping Name="Esemeny">
             <EntityTypeMapping TypeName="Database1Model.Esemeny">
               <MappingFragment StoreEntitySet="Esemeny">
                 <ScalarProperty Name="ESEMENY_ID" ColumnName="ESEMENY_ID" />
@@ -407,7 +407,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Felhasznaloes">
+          <EntitySetMapping Name="Felhasznalo">
             <EntityTypeMapping TypeName="Database1Model.Felhasznalo">
               <MappingFragment StoreEntitySet="Felhasznalo">
                 <ScalarProperty Name="FELH_NEV" ColumnName="FELH_NEV" />
@@ -419,7 +419,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Idomeroes">
+          <EntitySetMapping Name="Idomero">
             <EntityTypeMapping TypeName="Database1Model.Idomero">
               <MappingFragment StoreEntitySet="Idomero">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -464,7 +464,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

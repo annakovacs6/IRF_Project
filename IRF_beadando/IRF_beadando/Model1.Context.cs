@@ -13,10 +13,10 @@ namespace IRF_beadando
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Database1Entities : DbContext
+    public partial class Database1Entities4 : DbContext
     {
-        public Database1Entities()
-            : base("name=Database1Entities")
+        public Database1Entities4()
+            : base("name=Database1Entities4")
         {
         }
     
@@ -26,9 +26,9 @@ namespace IRF_beadando
         }
     
         public virtual DbSet<Budapest_10km> Budapest_10km { get; set; }
-        public virtual DbSet<Esemeny> Esemenies { get; set; }
-        public virtual DbSet<Felhasznalo> Felhasznaloes { get; set; }
-        public virtual DbSet<Idomero> Idomeroes { get; set; }
+        public virtual DbSet<Esemeny> Esemeny { get; set; }
+        public virtual DbSet<Felhasznalo> Felhasznalo { get; set; }
+        public virtual DbSet<Idomero> Idomero { get; set; }
         public virtual DbSet<Mikulas_futas> Mikulas_futas { get; set; }
         public virtual DbSet<Nyar_koszonto_futas> Nyar_koszonto_futas { get; set; }
     }
