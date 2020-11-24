@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IRF_beadando.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,19 @@ namespace IRF_beadando
 	{
 		Database1Entities4 context = new Database1Entities4();
 		Felhasznalo felhasznalo;
+
+		private List<Futo> futos = new List<Futo>();
+
+		private FutoAnimacio _animacio;
+		public FutoAnimacio Animacio
+		{
+			get { return _animacio; }
+			set { _animacio = value; }
+		}
 		public Form2(Felhasznalo bejelentkezettFelhasznalo)
 		{
 			InitializeComponent();
-
+			Animacio = new FutoAnimacio();
 			this.felhasznalo = bejelentkezettFelhasznalo;
 		}
 	}
