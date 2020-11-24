@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities4">
+    <EntitySetMapping Name="Budapest_10km">
+      <EntityTypeMapping TypeName="Database1Model.Budapest_10km">
+        <MappingFragment StoreEntitySet="Budapest_10km">
+          <ScalarProperty Name="HELYEZES" ColumnName="HELYEZES" />
+          <ScalarProperty Name="FELH_NEV_FK" ColumnName="FELH_NEV_FK" />
+          <ScalarProperty Name="IDO" ColumnName="IDO" />
+          <ScalarProperty Name="ESEMENY_FK" ColumnName="ESEMENY_FK" />
+          <ScalarProperty Name="TAV" ColumnName="TAV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esemeny">
+      <EntityTypeMapping TypeName="Database1Model.Esemeny">
+        <MappingFragment StoreEntitySet="Esemeny">
+          <ScalarProperty Name="ESEMENY_ID" ColumnName="ESEMENY_ID" />
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+          <ScalarProperty Name="HELYSZIN" ColumnName="HELYSZIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Felhasznalo">
+      <EntityTypeMapping TypeName="Database1Model.Felhasznalo">
+        <MappingFragment StoreEntitySet="Felhasznalo">
+          <ScalarProperty Name="FELH_NEV" ColumnName="FELH_NEV" />
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="SZUL_DAT" ColumnName="SZUL_DAT" />
+          <ScalarProperty Name="LAKCIM" ColumnName="LAKCIM" />
+          <ScalarProperty Name="FUTO_AZONOSITO" ColumnName="FUTO_AZONOSITO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Idomero">
+      <EntityTypeMapping TypeName="Database1Model.Idomero">
+        <MappingFragment StoreEntitySet="Idomero">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FELH_NEV_FK" ColumnName="FELH_NEV_FK" />
+          <ScalarProperty Name="MERT_IDO" ColumnName="MERT_IDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mikulas_futas">
+      <EntityTypeMapping TypeName="Database1Model.Mikulas_futas">
+        <MappingFragment StoreEntitySet="Mikulas_futas">
+          <ScalarProperty Name="HELYEZES" ColumnName="HELYEZES" />
+          <ScalarProperty Name="FELH_NEV_FK" ColumnName="FELH_NEV_FK" />
+          <ScalarProperty Name="IDO" ColumnName="IDO" />
+          <ScalarProperty Name="ESEMENY_FK" ColumnName="ESEMENY_FK" />
+          <ScalarProperty Name="TAV" ColumnName="TAV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nyar_koszonto_futas">
+      <EntityTypeMapping TypeName="Database1Model.Nyar_koszonto_futas">
+        <MappingFragment StoreEntitySet="Nyar_koszonto_futas">
+          <ScalarProperty Name="HELYEZES" ColumnName="HELYEZES" />
+          <ScalarProperty Name="FELH_NEV_FK" ColumnName="FELH_NEV_FK" />
+          <ScalarProperty Name="IDO" ColumnName="IDO" />
+          <ScalarProperty Name="ESEMENY_FK" ColumnName="ESEMENY_FK" />
+          <ScalarProperty Name="TAV" ColumnName="TAV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

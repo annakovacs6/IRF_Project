@@ -29,6 +29,7 @@ namespace IRF_beadando
         public string LAKCIM { get; set; }
         public string FUTO_AZONOSITO { get; set; }
         public string EMAIL { get; set; }
+        public string JELSZO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Budapest_10km> Budapest_10km { get; set; }

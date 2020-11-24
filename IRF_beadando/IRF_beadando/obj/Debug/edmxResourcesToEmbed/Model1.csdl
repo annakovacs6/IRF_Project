@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Budapest_10km">
+    <Key>
+      <PropertyRef Name="HELYEZES" />
+    </Key>
+    <Property Name="HELYEZES" Type="Int32" Nullable="false" />
+    <Property Name="FELH_NEV_FK" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDO" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="ESEMENY_FK" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TAV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Esemeny" Relationship="Self.FK_Budapest_10km_Esemeny" FromRole="Budapest_10km" ToRole="Esemeny" />
+    <NavigationProperty Name="Felhasznalo" Relationship="Self.FK_Budapest_10km_Felhasznalo" FromRole="Budapest_10km" ToRole="Felhasznalo" />
+  </EntityType>
+  <EntityType Name="Esemeny">
+    <Key>
+      <PropertyRef Name="ESEMENY_ID" />
+    </Key>
+    <Property Name="ESEMENY_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NEV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DATUM" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="HELYSZIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Budapest_10km" Relationship="Self.FK_Budapest_10km_Esemeny" FromRole="Esemeny" ToRole="Budapest_10km" />
+    <NavigationProperty Name="Mikulas_futas" Relationship="Self.FK_Mikulas_futas_Esemeny" FromRole="Esemeny" ToRole="Mikulas_futas" />
+    <NavigationProperty Name="Nyar_koszonto_futas" Relationship="Self.FK_Nyar_koszonto_futas_Esemeny" FromRole="Esemeny" ToRole="Nyar_koszonto_futas" />
+  </EntityType>
+  <EntityType Name="Felhasznalo">
+    <Key>
+      <PropertyRef Name="FELH_NEV" />
+    </Key>
+    <Property Name="FELH_NEV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NEV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SZUL_DAT" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LAKCIM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FUTO_AZONOSITO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Budapest_10km" Relationship="Self.FK_Budapest_10km_Felhasznalo" FromRole="Felhasznalo" ToRole="Budapest_10km" />
+    <NavigationProperty Name="Idomero" Relationship="Self.FK_Idomero_Felhasznalo" FromRole="Felhasznalo" ToRole="Idomero" />
+    <NavigationProperty Name="Mikulas_futas" Relationship="Self.FK_Mikulas_futas_Felhasznalo" FromRole="Felhasznalo" ToRole="Mikulas_futas" />
+    <NavigationProperty Name="Nyar_koszonto_futas" Relationship="Self.FK_Nyar_koszonto_futas_Felhasznalo" FromRole="Felhasznalo" ToRole="Nyar_koszonto_futas" />
+  </EntityType>
+  <EntityType Name="Idomero">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FELH_NEV_FK" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MERT_IDO" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Felhasznalo" Relationship="Self.FK_Idomero_Felhasznalo" FromRole="Idomero" ToRole="Felhasznalo" />
+  </EntityType>
+  <EntityType Name="Mikulas_futas">
+    <Key>
+      <PropertyRef Name="HELYEZES" />
+    </Key>
+    <Property Name="HELYEZES" Type="Int32" Nullable="false" />
+    <Property Name="FELH_NEV_FK" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDO" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="ESEMENY_FK" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TAV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Esemeny" Relationship="Self.FK_Mikulas_futas_Esemeny" FromRole="Mikulas_futas" ToRole="Esemeny" />
+    <NavigationProperty Name="Felhasznalo" Relationship="Self.FK_Mikulas_futas_Felhasznalo" FromRole="Mikulas_futas" ToRole="Felhasznalo" />
+  </EntityType>
+  <EntityType Name="Nyar_koszonto_futas">
+    <Key>
+      <PropertyRef Name="HELYEZES" />
+    </Key>
+    <Property Name="HELYEZES" Type="Int32" Nullable="false" />
+    <Property Name="FELH_NEV_FK" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDO" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="ESEMENY_FK" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TAV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Esemeny" Relationship="Self.FK_Nyar_koszonto_futas_Esemeny" FromRole="Nyar_koszonto_futas" ToRole="Esemeny" />
+    <NavigationProperty Name="Felhasznalo" Relationship="Self.FK_Nyar_koszonto_futas_Felhasznalo" FromRole="Nyar_koszonto_futas" ToRole="Felhasznalo" />
+  </EntityType>
+  <Association Name="FK_Budapest_10km_Esemeny">
+    <End Role="Esemeny" Type="Self.Esemeny" Multiplicity="1" />
+    <End Role="Budapest_10km" Type="Self.Budapest_10km" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Esemeny">
+        <PropertyRef Name="ESEMENY_ID" />
+      </Principal>
+      <Dependent Role="Budapest_10km">
+        <PropertyRef Name="ESEMENY_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Budapest_10km_Felhasznalo">
+    <End Role="Felhasznalo" Type="Self.Felhasznalo" Multiplicity="1" />
+    <End Role="Budapest_10km" Type="Self.Budapest_10km" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Felhasznalo">
+        <PropertyRef Name="FELH_NEV" />
+      </Principal>
+      <Dependent Role="Budapest_10km">
+        <PropertyRef Name="FELH_NEV_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mikulas_futas_Esemeny">
+    <End Role="Esemeny" Type="Self.Esemeny" Multiplicity="1" />
+    <End Role="Mikulas_futas" Type="Self.Mikulas_futas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Esemeny">
+        <PropertyRef Name="ESEMENY_ID" />
+      </Principal>
+      <Dependent Role="Mikulas_futas">
+        <PropertyRef Name="ESEMENY_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nyar_koszonto_futas_Esemeny">
+    <End Role="Esemeny" Type="Self.Esemeny" Multiplicity="1" />
+    <End Role="Nyar_koszonto_futas" Type="Self.Nyar_koszonto_futas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Esemeny">
+        <PropertyRef Name="ESEMENY_ID" />
+      </Principal>
+      <Dependent Role="Nyar_koszonto_futas">
+        <PropertyRef Name="ESEMENY_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Idomero_Felhasznalo">
+    <End Role="Felhasznalo" Type="Self.Felhasznalo" Multiplicity="1" />
+    <End Role="Idomero" Type="Self.Idomero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Felhasznalo">
+        <PropertyRef Name="FELH_NEV" />
+      </Principal>
+      <Dependent Role="Idomero">
+        <PropertyRef Name="FELH_NEV_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mikulas_futas_Felhasznalo">
+    <End Role="Felhasznalo" Type="Self.Felhasznalo" Multiplicity="1" />
+    <End Role="Mikulas_futas" Type="Self.Mikulas_futas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Felhasznalo">
+        <PropertyRef Name="FELH_NEV" />
+      </Principal>
+      <Dependent Role="Mikulas_futas">
+        <PropertyRef Name="FELH_NEV_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nyar_koszonto_futas_Felhasznalo">
+    <End Role="Felhasznalo" Type="Self.Felhasznalo" Multiplicity="1" />
+    <End Role="Nyar_koszonto_futas" Type="Self.Nyar_koszonto_futas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Felhasznalo">
+        <PropertyRef Name="FELH_NEV" />
+      </Principal>
+      <Dependent Role="Nyar_koszonto_futas">
+        <PropertyRef Name="FELH_NEV_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1Entities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Budapest_10km" EntityType="Self.Budapest_10km" />
+    <EntitySet Name="Esemeny" EntityType="Self.Esemeny" />
+    <EntitySet Name="Felhasznalo" EntityType="Self.Felhasznalo" />
+    <EntitySet Name="Idomero" EntityType="Self.Idomero" />
+    <EntitySet Name="Mikulas_futas" EntityType="Self.Mikulas_futas" />
+    <EntitySet Name="Nyar_koszonto_futas" EntityType="Self.Nyar_koszonto_futas" />
+    <AssociationSet Name="FK_Budapest_10km_Esemeny" Association="Self.FK_Budapest_10km_Esemeny">
+      <End Role="Esemeny" EntitySet="Esemeny" />
+      <End Role="Budapest_10km" EntitySet="Budapest_10km" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Budapest_10km_Felhasznalo" Association="Self.FK_Budapest_10km_Felhasznalo">
+      <End Role="Felhasznalo" EntitySet="Felhasznalo" />
+      <End Role="Budapest_10km" EntitySet="Budapest_10km" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mikulas_futas_Esemeny" Association="Self.FK_Mikulas_futas_Esemeny">
+      <End Role="Esemeny" EntitySet="Esemeny" />
+      <End Role="Mikulas_futas" EntitySet="Mikulas_futas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nyar_koszonto_futas_Esemeny" Association="Self.FK_Nyar_koszonto_futas_Esemeny">
+      <End Role="Esemeny" EntitySet="Esemeny" />
+      <End Role="Nyar_koszonto_futas" EntitySet="Nyar_koszonto_futas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Idomero_Felhasznalo" Association="Self.FK_Idomero_Felhasznalo">
+      <End Role="Felhasznalo" EntitySet="Felhasznalo" />
+      <End Role="Idomero" EntitySet="Idomero" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mikulas_futas_Felhasznalo" Association="Self.FK_Mikulas_futas_Felhasznalo">
+      <End Role="Felhasznalo" EntitySet="Felhasznalo" />
+      <End Role="Mikulas_futas" EntitySet="Mikulas_futas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nyar_koszonto_futas_Felhasznalo" Association="Self.FK_Nyar_koszonto_futas_Felhasznalo">
+      <End Role="Felhasznalo" EntitySet="Felhasznalo" />
+      <End Role="Nyar_koszonto_futas" EntitySet="Nyar_koszonto_futas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
