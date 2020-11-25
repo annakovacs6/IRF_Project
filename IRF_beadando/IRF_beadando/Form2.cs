@@ -145,7 +145,7 @@ namespace IRF_beadando
 
 		private void btnMentes_Click(object sender, EventArgs e)
 		{
-
+			CreateExcel();
 		}
 
 		public void CreateExcel()
@@ -159,14 +159,24 @@ namespace IRF_beadando
 
 				xlSheet = xlWB.ActiveSheet;
 
-				if (selectedEsemeny.ESEMENY_ID )
+				if (selectedEsemeny.ESEMENY_ID == "BP10K")
 				{
-
+					CreateBP10Table();
+					FormatTable();
 				}
-				CreateBP10Table();
-				CreateMIKILASTable();
-				CreateNYARTable();
-				FormatTable();
+
+				if(selectedEsemeny.ESEMENY_ID == "MKLSF")
+				{
+					CreateMIKILASTable();
+					FormatTable();
+				}
+				
+				if(selectedEsemeny.ESEMENY_ID == "NYKF")
+				{
+					CreateNYARTable();
+					FormatTable();
+				}
+				
 
 				xlApp.Visible = true;
 				xlApp.UserControl = true;
