@@ -158,7 +158,8 @@ namespace IRF_beadando
 
 				xlSheet = xlWB.ActiveSheet;
 
-				//CreateTable();
+				CreateBP10Table();
+				FormatTable();
 
 				xlApp.Visible = true;
 				xlApp.UserControl = true;
@@ -175,8 +176,34 @@ namespace IRF_beadando
 				xlApp = null;
 			}
 		}
+		public void CreateNYARTable()
+		{
+			for (int i = 1; i < headers.Length; i++)
+			{
+				xlSheet.Cells[1, i] = headers[i - 1];
+			}
 
-		public void CreateTable()
+			object[,] values = new object[Nyar_Koszonto_Futas.Count, headers.Length];
+
+			int counter = 0;
+			foreach (Nyar_koszonto_futas nyar in Nyar_Koszonto_Futas)
+			{
+				values[counter, 0] = nyar.HELYEZES;
+				values[counter, 1] = (from x in context.Felhasznalo
+									 where x.FELH_NEV == nyar.FELH_NEV_FK
+									 select x.FUTO_AZONOSITO).FirstOrDefault();
+				values[counter, 2] = nyar.IDO;
+				values[counter, 3] = (from x in context.Esemeny
+									 where x.ESEMENY_ID == nyar.ESEMENY_FK
+									 select x.NEV).FirstOrDefault();
+				values[counter, 4] = nyar.TAV;
+				counter++;
+			}
+
+			xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+		}
+
+		public void CreateBP10Table()
 		{
 
 			for (int i = 1; i < headers.Length; i++)
@@ -204,24 +231,54 @@ namespace IRF_beadando
 			xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
 		}
 
-		private string GetCell (int x, int y)
+		public void CreateMIKILASTable()
+		{
+			for (int i = 1; i < headers.Length; i++)
+			{
+				xlSheet.Cells[1, i] = headers[i - 1];
+			}
+
+			object[,] values = new object[Mikulas_Futas.Count, headers.Length];
+
+			int counter = 0;
+			foreach (Mikulas_futas dec in Mikulas_Futas)
+			{
+				values[counter, 0] = dec.HELYEZES;
+				values[counter, 1] = (from x in context.Felhasznalo
+									 where x.FELH_NEV == dec.FELH_NEV_FK
+									 select x.FUTO_AZONOSITO).FirstOrDefault();
+				values[counter, 2] = dec.IDO;
+				values[counter, 3] = (from x in context.Esemeny
+									 where x.ESEMENY_ID == dec.ESEMENY_FK
+									 select x.NEV).FirstOrDefault();
+				values[counter, 4] = dec.TAV;
+				counter++;
+			}
+
+			xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+		}
+
+
+
+
+
+		private string GetCell(int x, int y)
 		{
 			string ExcelCoordinate = "";
 			int dividend = y;
 			int modulo;
 
-			while (dividend>0)
+			while (dividend > 0)
 			{
 				modulo = (dividend - 1) % 26;
 				ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
 				dividend = (int)((dividend - modulo) / 26);
-
 			}
-
 			ExcelCoordinate += x.ToString();
 
 			return ExcelCoordinate;
 		}
+	
 
 		private void FormatTable()
 		{
