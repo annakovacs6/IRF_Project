@@ -150,6 +150,7 @@ namespace IRF_beadando
 
 		public void CreateExcel()
 		{
+			Esemeny selectedEsemeny = (Esemeny)listBoxEsemeny.SelectedItem;
 			try
 			{
 				xlApp = new Excel.Application();
@@ -158,7 +159,13 @@ namespace IRF_beadando
 
 				xlSheet = xlWB.ActiveSheet;
 
+				if (selectedEsemeny.ESEMENY_ID )
+				{
+
+				}
 				CreateBP10Table();
+				CreateMIKILASTable();
+				CreateNYARTable();
 				FormatTable();
 
 				xlApp.Visible = true;
