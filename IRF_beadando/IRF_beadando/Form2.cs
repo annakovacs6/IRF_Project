@@ -31,11 +31,11 @@ namespace IRF_beadando
 		private List<Futo> _futos = new List<Futo>();
 
 		string[] headers = new string[]{
-				"Esemény",
-				"Táv",
 				"Helyezés",
 				"Futóazonosító",
-				"Idő" };
+				"Idő",
+				"Esemény",
+				"Táv" };
 
 		private FutoAnimacio _animacio;
 		public FutoAnimacio Animacio
@@ -189,17 +189,19 @@ namespace IRF_beadando
 			int counter = 0;
 			foreach (Budapest_10km bp in Budapest_10Kms)
 			{
-				values[counter, 0] = (from x in context.Esemeny
+				values[counter, 0] = bp.HELYEZES; 
+				values[counter, 1] = (from x in context.Felhasznalo
+									  where x.FELH_NEV == bp.FELH_NEV_FK
+									  select x.FUTO_AZONOSITO).FirstOrDefault(); 
+				values[counter, 2] = bp.IDO;
+				values[counter, 3] = (from x in context.Esemeny
 									  where x.ESEMENY_ID == bp.ESEMENY_FK
 									  select x.NEV).FirstOrDefault();
-				values[counter, 1] = bp.TAV;
-				values[counter, 2] = bp.HELYEZES;
-				values[counter, 3] = (from x in context.Felhasznalo
-									  where x.FELH_NEV == bp.FELH_NEV_FK
-									  select x.FUTO_AZONOSITO).FirstOrDefault();
-				values[counter, 4] = bp.IDO;
+				values[counter, 4] = bp.TAV;
 				counter++;
 			}
+
+			xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
 		}
 
 		private string GetCell (int x, int y)
@@ -219,6 +221,42 @@ namespace IRF_beadando
 			ExcelCoordinate += x.ToString();
 
 			return ExcelCoordinate;
+		}
+
+		private void FormatTable()
+		{
+			Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+			headerRange.Font.Bold = true;
+			headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+			headerRange.VerticalAlignment = Excel.XlHAlign.xlHAlignCenter;
+			headerRange.EntireColumn.AutoFit();
+			headerRange.RowHeight = 40;
+			headerRange.Interior.Color = Color.LightSalmon;
+			headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+			int lastRowID = xlSheet.UsedRange.Rows.Count;
+
+			Excel.Range tableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, headers.Length));
+			tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+			dynamic dataRange = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, headers.Length));
+			dataRange.Sort(dataRange.Coloumns[1], Excel.XlSortOrder.xlAscending);
+
+			Excel.Range firstRange = xlSheet.get_Range(GetCell(2, 1), GetCell(2,headers.Length));
+			firstRange.Interior.Color = Color.LightYellow;
+
+			Excel.Range secondRange = xlSheet.get_Range(GetCell(3, 1), GetCell(3, headers.Length));
+			secondRange.Interior.Color = Color.LightGray;
+
+			Excel.Range thirdRange = xlSheet.get_Range(GetCell(4, 1), GetCell(4, headers.Length));
+			thirdRange.Interior.Color = "#ab8061";
+
+			Excel.Range noPodiumColumn = xlSheet.get_Range(GetCell(5, 1), GetCell(lastRowID, 1));
+			noPodiumColumn.Interior.Color = Color.LightBlue;
+
+			Excel.Range firstColumn = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, 1));
+			firstColumn.Font.Bold = true;
+
 		}
 	}
 }
