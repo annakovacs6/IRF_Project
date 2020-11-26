@@ -145,109 +145,56 @@ namespace IRF_beadando
 								 where x.NEV == (string)listBoxEsemeny.SelectedItem
 								 select x.ESEMENY_ID).FirstOrDefault();
 
-			if (valasztott == "BP10K")
+			try
 			{
-				try
+				xlApp = new Excel.Application();
+
+				xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+				xlSheet = xlWB.ActiveSheet;
+
+				if (valasztott == "BP10K")
 				{
-					xlApp = new Excel.Application();
-
-					xlWB = xlApp.Workbooks.Add(Missing.Value);
-
-					xlSheet = xlWB.ActiveSheet;
-
-
 					CreateBP10Table();
 					FormatTable();
-
-					xlApp.Visible = true;
-					xlApp.UserControl = true;
-
-				}
-				catch (Exception ex)
-				{
-					string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
-					MessageBox.Show(errMsg, "Error");
-
-					xlWB.Close(false, Type.Missing, Type.Missing);
-					xlApp.Quit();
-					xlWB = null;
-					xlApp = null;
-				}
-				
-			}
-			else
-			{
-				if (valasztott == "MKLSF")
-				{
-					
-
-					try
-					{
-						xlApp = new Excel.Application();
-
-						xlWB = xlApp.Workbooks.Add(Missing.Value);
-
-						xlSheet = xlWB.ActiveSheet;
-
-
-						CreateMIKULASTable();
-						FormatTable();
-
-						xlApp.Visible = true;
-						xlApp.UserControl = true;
-
-					}
-					catch (Exception ex)
-					{
-						string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
-						MessageBox.Show(errMsg, "Error");
-
-						xlWB.Close(false, Type.Missing, Type.Missing);
-						xlApp.Quit();
-						xlWB = null;
-						xlApp = null;
-					}
 				}
 				else
 				{
-					if (valasztott == "NYKF")
+					if(valasztott == "MKLSF")
 					{
-
-						try
-						{
-							xlApp = new Excel.Application();
-
-							xlWB = xlApp.Workbooks.Add(Missing.Value);
-
-							xlSheet = xlWB.ActiveSheet;
-
-
-							CreateNYARTable();
-							FormatTable();
-
-							xlApp.Visible = true;
-							xlApp.UserControl = true;
-
-						}
-						catch (Exception ex)
-						{
-							string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
-							MessageBox.Show(errMsg, "Error");
-
-							xlWB.Close(false, Type.Missing, Type.Missing);
-							xlApp.Quit();
-							xlWB = null;
-							xlApp = null;
-						}
-						
+						CreateMIKULASTable();
+						FormatTable();
 					}
 					else
 					{
-						MessageBox.Show("Hiba történt");
+						if(valasztott == "NYKF")
+						{
+							CreateNYARTable();
+							FormatTable();
+						}
+						else
+						{
+							string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+							MessageBox.Show(errMsg, "Error");
+						}
 					}
 				}
-			}
+				
 
+				xlApp.Visible = true;
+				xlApp.UserControl = true;
+
+			}
+			catch (Exception ex)
+			{
+				string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+				MessageBox.Show(errMsg, "Error");
+
+				xlWB.Close(false, Type.Missing, Type.Missing);
+				xlApp.Quit();
+				xlWB = null;
+				xlApp = null;
+			}
 		}
 
 
