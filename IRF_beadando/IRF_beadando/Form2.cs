@@ -143,7 +143,7 @@ namespace IRF_beadando
 		{
 			string valasztott = (from x in context.Esemeny
 								 where x.NEV == (string)listBoxEsemeny.SelectedItem
-								 select x.ESEMENY_ID).FirstOrDefault();
+								 select x.ESEMENY_ID).ToString();
 
 			try
 			{
@@ -171,11 +171,6 @@ namespace IRF_beadando
 						{
 							CreateNYARTable();
 							FormatTable();
-						}
-						else
-						{
-							string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
-							MessageBox.Show(errMsg, "Error");
 						}
 					}
 				}
