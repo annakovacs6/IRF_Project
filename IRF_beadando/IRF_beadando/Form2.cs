@@ -28,6 +28,7 @@ namespace IRF_beadando
 		Excel.Workbook xlWB;
 		Excel.Worksheet xlSheet;
 
+
 		private List<Futo> _futos = new List<Futo>();
 
 		string[] headers = new string[]{
@@ -51,20 +52,15 @@ namespace IRF_beadando
 			this.felhasznalo = bejelentkezettFelhasznalo;
 			Stopwatch stopwatch = new Stopwatch();
 
-			listBoxEsemeny.DisplayMember = "NEV";
-
-			this.listEsemenyek();
+			
 			this.LoadData();
 
+			listBoxEsemeny.DataSource = (from x in context.Esemeny
+										 select x.NEV).ToList();
+		
+
 		}
 
-		public void listEsemenyek()
-		{
-			var esemeny = (from x in context.Esemeny
-							 select x).ToList();
-
-			listBoxEsemeny.DataSource = esemeny;
-		}
 
 		private void LoadData() 
 		{
@@ -145,54 +141,116 @@ namespace IRF_beadando
 
 		private void btnMentes_Click(object sender, EventArgs e)
 		{
-			CreateExcel();
-		}
+			string valasztott = (from x in context.Esemeny
+								 where x.NEV == (string)listBoxEsemeny.SelectedItem
+								 select x.ESEMENY_ID).FirstOrDefault();
 
-		public void CreateExcel()
-		{
-			Esemeny selectedEsemeny = (Esemeny)listBoxEsemeny.SelectedItem;
-			try
+			if (valasztott == "BP10K")
 			{
-				xlApp = new Excel.Application();
-
-				xlWB = xlApp.Workbooks.Add(Missing.Value);
-
-				xlSheet = xlWB.ActiveSheet;
-
-				if (selectedEsemeny.ESEMENY_ID == "BP10K")
+				try
 				{
+					xlApp = new Excel.Application();
+
+					xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+					xlSheet = xlWB.ActiveSheet;
+
+
 					CreateBP10Table();
 					FormatTable();
-				}
 
-				if(selectedEsemeny.ESEMENY_ID == "MKLSF")
+					xlApp.Visible = true;
+					xlApp.UserControl = true;
+
+				}
+				catch (Exception ex)
 				{
-					CreateMIKILASTable();
-					FormatTable();
+					string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+					MessageBox.Show(errMsg, "Error");
+
+					xlWB.Close(false, Type.Missing, Type.Missing);
+					xlApp.Quit();
+					xlWB = null;
+					xlApp = null;
 				}
 				
-				if(selectedEsemeny.ESEMENY_ID == "NYKF")
-				{
-					CreateNYARTable();
-					FormatTable();
-				}
-				
-
-				xlApp.Visible = true;
-				xlApp.UserControl = true;
-
 			}
-			catch (Exception ex)
+			else
 			{
-				string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
-				MessageBox.Show(errMsg, "Error");
+				if (valasztott == "MKLSF")
+				{
+					
 
-				xlWB.Close(false, Type.Missing, Type.Missing);
-				xlApp.Quit();
-				xlWB = null;
-				xlApp = null;
+					try
+					{
+						xlApp = new Excel.Application();
+
+						xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+						xlSheet = xlWB.ActiveSheet;
+
+
+						CreateMIKULASTable();
+						FormatTable();
+
+						xlApp.Visible = true;
+						xlApp.UserControl = true;
+
+					}
+					catch (Exception ex)
+					{
+						string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+						MessageBox.Show(errMsg, "Error");
+
+						xlWB.Close(false, Type.Missing, Type.Missing);
+						xlApp.Quit();
+						xlWB = null;
+						xlApp = null;
+					}
+				}
+				else
+				{
+					if (valasztott == "NYKF")
+					{
+
+						try
+						{
+							xlApp = new Excel.Application();
+
+							xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+							xlSheet = xlWB.ActiveSheet;
+
+
+							CreateNYARTable();
+							FormatTable();
+
+							xlApp.Visible = true;
+							xlApp.UserControl = true;
+
+						}
+						catch (Exception ex)
+						{
+							string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+							MessageBox.Show(errMsg, "Error");
+
+							xlWB.Close(false, Type.Missing, Type.Missing);
+							xlApp.Quit();
+							xlWB = null;
+							xlApp = null;
+						}
+						
+					}
+					else
+					{
+						MessageBox.Show("Hiba történt");
+					}
+				}
 			}
+
 		}
+
+
 		public void CreateNYARTable()
 		{
 			for (int i = 1; i < headers.Length; i++)
@@ -248,7 +306,7 @@ namespace IRF_beadando
 			xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
 		}
 
-		public void CreateMIKILASTable()
+		public void CreateMIKULASTable()
 		{
 			for (int i = 1; i < headers.Length; i++)
 			{
@@ -274,9 +332,6 @@ namespace IRF_beadando
 
 			xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
 		}
-
-
-
 
 
 		private string GetCell(int x, int y)
@@ -313,9 +368,6 @@ namespace IRF_beadando
 			Excel.Range tableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, headers.Length));
 			tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
-			dynamic dataRange = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, headers.Length));
-			dataRange.Sort(dataRange.Coloumns[1], Excel.XlSortOrder.xlAscending);
-
 			Excel.Range firstRange = xlSheet.get_Range(GetCell(2, 1), GetCell(2,headers.Length));
 			firstRange.Interior.Color = Color.LightYellow;
 
@@ -332,5 +384,7 @@ namespace IRF_beadando
 			firstColumn.Font.Bold = true;
 
 		}
+
+		
 	}
 }

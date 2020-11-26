@@ -62,7 +62,7 @@ namespace IRF_beadando
 			// btnStart
 			// 
 			this.btnStart.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.btnStart.Location = new System.Drawing.Point(219, 233);
+			this.btnStart.Location = new System.Drawing.Point(157, 284);
 			this.btnStart.Name = "btnStart";
 			this.btnStart.Size = new System.Drawing.Size(164, 35);
 			this.btnStart.TabIndex = 0;
@@ -73,7 +73,7 @@ namespace IRF_beadando
 			// btnStop
 			// 
 			this.btnStop.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.btnStop.Location = new System.Drawing.Point(395, 233);
+			this.btnStop.Location = new System.Drawing.Point(465, 284);
 			this.btnStop.Name = "btnStop";
 			this.btnStop.Size = new System.Drawing.Size(164, 35);
 			this.btnStop.TabIndex = 2;
@@ -105,7 +105,7 @@ namespace IRF_beadando
 			// btnMentes
 			// 
 			this.btnMentes.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.btnMentes.Location = new System.Drawing.Point(316, 169);
+			this.btnMentes.Location = new System.Drawing.Point(322, 209);
 			this.btnMentes.Name = "btnMentes";
 			this.btnMentes.Size = new System.Drawing.Size(141, 35);
 			this.btnMentes.TabIndex = 6;
@@ -115,12 +115,12 @@ namespace IRF_beadando
 			// 
 			// listBoxEsemeny
 			// 
-			this.listBoxEsemeny.Font = new System.Drawing.Font("Century", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.listBoxEsemeny.Font = new System.Drawing.Font("Century", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.listBoxEsemeny.FormattingEnabled = true;
-			this.listBoxEsemeny.ItemHeight = 21;
-			this.listBoxEsemeny.Location = new System.Drawing.Point(219, 86);
+			this.listBoxEsemeny.ItemHeight = 22;
+			this.listBoxEsemeny.Location = new System.Drawing.Point(225, 88);
 			this.listBoxEsemeny.Name = "listBoxEsemeny";
-			this.listBoxEsemeny.Size = new System.Drawing.Size(340, 67);
+			this.listBoxEsemeny.Size = new System.Drawing.Size(318, 92);
 			this.listBoxEsemeny.TabIndex = 7;
 			// 
 			// Form2
