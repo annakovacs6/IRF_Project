@@ -36,7 +36,8 @@ namespace IRF_beadando
 				"Futóazonosító",
 				"Idő",
 				"Esemény",
-				"Táv" };
+				"Táv" 
+		};
 
 		private FutoAnimacio _animacio;
 		public FutoAnimacio Animacio
@@ -304,7 +305,7 @@ namespace IRF_beadando
 			Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
 			headerRange.Font.Bold = true;
 			headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-			headerRange.VerticalAlignment = Excel.XlHAlign.xlHAlignCenter;
+			headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 			headerRange.EntireColumn.AutoFit();
 			headerRange.RowHeight = 40;
 			headerRange.Interior.Color = Color.LightSalmon;
