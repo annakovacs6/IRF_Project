@@ -214,7 +214,7 @@ namespace IRF_beadando
 				values[counter, 1] = (from x in context.Felhasznalo
 									 where x.FELH_NEV == nyar.FELH_NEV_FK
 									 select x.FUTO_AZONOSITO).FirstOrDefault();
-				values[counter, 2] = nyar.IDO.ToString("HH:mm:ss");
+				values[counter, 2] = nyar.IDO.ToString(); 
 				values[counter, 3] = (from x in context.Esemeny
 									 where x.ESEMENY_ID == nyar.ESEMENY_FK
 									 select x.NEV).FirstOrDefault();
@@ -241,8 +241,8 @@ namespace IRF_beadando
 				values[counter, 0] = bp.HELYEZES; 
 				values[counter, 1] = (from x in context.Felhasznalo
 									  where x.FELH_NEV == bp.FELH_NEV_FK
-									  select x.FUTO_AZONOSITO).FirstOrDefault(); 
-				values[counter, 2] = bp.IDO.ToString("HH:mm:ss");
+									  select x.FUTO_AZONOSITO).FirstOrDefault();
+				values[counter, 2] = bp.IDO.ToString();
 				values[counter, 3] = (from x in context.Esemeny
 									  where x.ESEMENY_ID == bp.ESEMENY_FK
 									  select x.NEV).FirstOrDefault();
@@ -269,7 +269,7 @@ namespace IRF_beadando
 				values[counter, 1] = (from x in context.Felhasznalo
 									 where x.FELH_NEV == dec.FELH_NEV_FK
 									 select x.FUTO_AZONOSITO).FirstOrDefault();
-				values[counter, 2] = dec.IDO.ToString("HH:mm:ss");
+				values[counter, 2] = dec.IDO.ToString();
 				values[counter, 3] = (from x in context.Esemeny
 									 where x.ESEMENY_ID == dec.ESEMENY_FK
 									 select x.NEV).FirstOrDefault();
