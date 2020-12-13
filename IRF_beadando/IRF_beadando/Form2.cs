@@ -323,7 +323,7 @@ namespace IRF_beadando
 			secondRange.Interior.Color = Color.LightGray;
 
 			Excel.Range thirdRange = xlSheet.get_Range(GetCell(4, 1), GetCell(4, headers.Length));
-			thirdRange.Interior.Color = "#ab8061";
+			thirdRange.Interior.Color = Color.FromArgb(171,128,97);
 
 			Excel.Range noPodiumColumn = xlSheet.get_Range(GetCell(5, 1), GetCell(lastRowID, 1));
 			noPodiumColumn.Interior.Color = Color.LightBlue;
